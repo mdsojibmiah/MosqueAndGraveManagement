@@ -126,7 +126,8 @@ export default function DonationList() {
 
           {/* Table */}
           <div ref={mosqueRef}>
-            <div className="overflow-x-auto">
+            <div className="w-full flex justify-center">
+            <div className="w-full ">
               <table className="min-w-full border border-gray-200 text-sm">
                 <thead>
                   <tr className="bg-green-100 text-left text-gray-700">
@@ -154,6 +155,7 @@ export default function DonationList() {
                   )}
                 </tbody>
               </table>
+            </div>
             </div>
           </div>
         </section>
@@ -209,7 +211,8 @@ export default function DonationList() {
 
           {/* Table */}
           <div ref={graveyardRef}>
-            <div className="overflow-x-auto">
+            <div className="w-full flex justify-center">
+            <div className="w-full">
               <table className="min-w-full border border-gray-200 text-sm">
                 <thead>
                   <tr className="bg-green-100 text-left text-gray-700">
@@ -237,6 +240,7 @@ export default function DonationList() {
                   )}
                 </tbody>
               </table>
+            </div>
             </div>
           </div>
         </section>

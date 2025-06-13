@@ -165,7 +165,8 @@ export default function ExpenseList() {
 
           {/* Table */}
           <div ref={mosqueRef}>
-            <div className="overflow-x-auto">
+            <div className="w-full flex justify-center">
+            <div className="w-full">
               <table className="min-w-full border border-gray-200">
                 <thead>
                   <tr className="bg-green-100 text-left text-sm text-gray-700">
@@ -195,6 +196,7 @@ export default function ExpenseList() {
                   )}
                 </tbody>
               </table>
+            </div>
             </div>
           </div>
         </section>
@@ -261,7 +263,8 @@ export default function ExpenseList() {
 
           {/* Table */}
           <div ref={graveyardRef}>
-            <div className="overflow-x-auto">
+            <div className="w-full flex justify-center">
+            <div className="w-full">
               <table className="min-w-full border border-gray-200">
                 <thead>
                   <tr className="bg-green-100 text-left text-sm text-gray-700">
@@ -291,6 +294,7 @@ export default function ExpenseList() {
                   )}
                 </tbody>
               </table>
+            </div>
             </div>
           </div>
         </section>
