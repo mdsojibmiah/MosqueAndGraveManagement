@@ -32,7 +32,7 @@ export default function Sidebar() {
           <Link to="/admin/dashboard" className="block hover:text-yellow-300 transition">
             🏠 ড্যাশবোর্ড
           </Link>
-          <Link to="/admin/add-donation" className="block hover:text-yellow-300 transition">
+          <Link to="../../pages/admin/MosqueDonation.jsx" className="block hover:text-yellow-300 transition">
             ➕ অনুদান যুক্ত করুন
           </Link>
           <Link to="/admin/add-expense" className="block hover:text-yellow-300 transition">

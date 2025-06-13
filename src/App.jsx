@@ -8,6 +8,7 @@ import Committee from "./pages/Committee";
 import Donation from "./pages/Donation";
 import Expense from "./pages/Expense";
 import Contact from "./pages/Contact";
+import MosqueDonation from "./pages/admin/MosqueDonation";
 
 // Navbar কে conditionally দেখানোর জন্য একটা Wrapper component
 function Layout() {
@@ -26,6 +27,7 @@ function Layout() {
           <Route path="/donation" element={<Donation />} />
           <Route path="/expense" element={<Expense />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin/mosque-donation" element={<MosqueDonation />} />
           {/* ProtectedRoute আর AdminRoute গুলো এখানে রাখো না */}
         </Routes>
       </div>
