@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
+import logo from '../assets/images/l2.png';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,7 +35,11 @@ export default function Navbar() {
             className="text-2xl font-extrabold tracking-wide select-none hover:text-yellow-300 transition"
             onClick={() => setMenuOpen(false)}
           >
-            🕌 আমার মসজিদ ও কবরস্থান
+            <img
+            src={logo}
+            alt="মসজিদ লোগো"
+            className="h-10 w-10 sm:h-10 sm:w-10 object-contain"
+          />
           </Link>
 
           {/* Desktop Menu */}
