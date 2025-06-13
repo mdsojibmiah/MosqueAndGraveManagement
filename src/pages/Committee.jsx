@@ -56,10 +56,10 @@ export default function Committee() {
   return (
     <section className="max-w-7xl mx-auto px-4 py-16">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold text-green-800 mb-2">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-800 mb-2 leading-tight">
           মসজিদ কমিটির সদস্যগণ
         </h1>
-        <p className="text-gray-700 max-w-2xl mx-auto text-lg mb-6">
+        <p className="text-gray-700 max-w-2xl mx-auto text-sm sm:text-base md:text-lg mb-6 leading-relaxed">
           কমিটির সক্রিয় সদস্যদের পরিচিতি, অভিজ্ঞতা এবং যোগাযোগের তথ্য এখানে দেওয়া হলো।
         </p>
 
@@ -82,24 +82,33 @@ export default function Committee() {
             <img
               src={member.photo}
               alt={member.name}
-              className="w-28 h-28 rounded-full mb-4 object-cover border-4 border-green-600"
+              className="w-24 h-24 sm:w-28 sm:h-28 rounded-full mb-4 object-cover border-4 border-green-600"
               loading="lazy"
             />
-            <h2 className="text-2xl font-semibold text-green-700 mb-1">
+            <h2 className="text-xl sm:text-2xl font-semibold text-green-700 mb-1 leading-snug">
               {member.name}
             </h2>
-            <p className="text-green-600 font-medium mb-1">{member.position}</p>
-            <p className="text-gray-700 text-sm italic mb-2">{member.bio}</p>
+            <p className="text-green-600 font-medium mb-1 text-sm sm:text-base">
+              {member.position}
+            </p>
+            <p className="text-gray-700 text-xs sm:text-sm italic mb-2 leading-relaxed">
+              {member.bio}
+            </p>
 
             <a
               href={`tel:${member.phone}`}
-              className="flex items-center gap-2 text-gray-800 font-medium mb-4 hover:text-green-600 transition"
+              className="flex items-center gap-2 text-gray-800 font-medium mb-4 hover:text-green-600 transition text-sm sm:text-base"
             >
               <FaPhone /> {member.phone}
             </a>
 
-            <div className="flex gap-4 text-green-700 text-xl">
-              <a href={member.facebook} target="_blank" rel="noreferrer" aria-label="Facebook">
+            <div className="flex gap-4 text-green-700 text-lg sm:text-xl">
+              <a
+                href={member.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+              >
                 <FaFacebookF className="hover:text-blue-600" />
               </a>
               <a
@@ -110,10 +119,20 @@ export default function Committee() {
               >
                 <FaWhatsapp className="hover:text-green-500" />
               </a>
-              <a href={member.twitter} target="_blank" rel="noreferrer" aria-label="Twitter">
+              <a
+                href={member.twitter}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Twitter"
+              >
                 <FaTwitter className="hover:text-blue-400" />
               </a>
-              <a href={member.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+              >
                 <FaLinkedinIn className="hover:text-blue-700" />
               </a>
             </div>

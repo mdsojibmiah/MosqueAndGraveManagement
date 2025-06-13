@@ -63,10 +63,11 @@ const handleDownloadPDF = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 py-16">
       <div className="text-center mb-6">
-        <h1 className="text-4xl font-bold text-green-800 mb-2">
-          <FaDonate className="inline mr-2" />
-          অনুদানের তালিকা
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-green-800 mb-4 leading-tight flex items-center justify-center">
+        <FaDonate className="inline mr-3 text-3xl sm:text-4xl" />
+        অনুদানের তালিকা
         </h1>
+
         <button
           onClick={handleDownloadPDF}
           className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 text-sm"
