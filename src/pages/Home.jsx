@@ -1,5 +1,7 @@
 // src/pages/Home.jsx
 import { FaCheckCircle } from "react-icons/fa";
+import Contact from "./Contact";
+// import committee from "./Committee";
 
 export default function Home() {
   const points = [
@@ -14,7 +16,7 @@ export default function Home() {
     <section className="max-w-7xl mx-auto px-6 py-20">
       {/* হেডিং ও পরিচিতি */}
       <div className="text-center mb-16">
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-green-900 drop-shadow-md mb-6 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-green-700 drop-shadow-md mb-6 leading-tight">
           আমাদের মসজিদ ও কবরস্থান
         </h1>
         <p className="max-w-3xl mx-auto text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
@@ -62,6 +64,7 @@ export default function Home() {
           কমিটির সদস্য দেখুন
         </a>
       </div>
+      <Contact/>
     </section>
   );
 }

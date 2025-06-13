@@ -212,7 +212,7 @@ export default function DonationList() {
           {/* Table */}
           <div ref={graveyardRef}>
             <div className="w-full flex justify-center">
-            <div className="w-full">
+            <div className="w-full max-w-4xl">
               <table className="min-w-full border border-gray-200 text-sm">
                 <thead>
                   <tr className="bg-green-100 text-left text-gray-700">

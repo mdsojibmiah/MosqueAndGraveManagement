@@ -27,7 +27,7 @@ function Layout() {
           <Route path="/donation" element={<Donation />} />
           <Route path="/expense" element={<Expense />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admin/mosque-donation" element={<MosqueDonation />} />
+
           {/* ProtectedRoute আর AdminRoute গুলো এখানে রাখো না */}
         </Routes>
       </div>
@@ -36,6 +36,7 @@ function Layout() {
 }
 
 function App() {
+  
   return (
     <Router>
       {/* Layout component শুধু public পেজের জন্য */}
@@ -52,6 +53,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/admin/mosquedonation" element={<MosqueDonation />} />
       </Routes>
     </Router>
   );

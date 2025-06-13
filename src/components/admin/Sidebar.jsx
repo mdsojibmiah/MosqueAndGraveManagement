@@ -41,7 +41,7 @@ export default function Sidebar() {
           <Link to="/admin/manage-committee" className="block hover:text-yellow-300 transition">
             👥 কমিটি ম্যানেজ
           </Link>
-          <Link to="/" className="block hover:text-yellow-300 transition">
+          <Link to="/home" className="block hover:text-yellow-300 transition">
             🌐 ওয়েবসাইটে ফিরে যান
           </Link>
         </nav>
