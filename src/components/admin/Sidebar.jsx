@@ -1,58 +1,88 @@
 // src/components/admin/Sidebar.jsx
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import {
+  FaMosque,
+  FaTachometerAlt,
+  FaDonate,
+  FaMoneyBillWave,
+  FaUsersCog,
+  FaMoneyCheckAlt,
+  FaGlobe,
+} from "react-icons/fa";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const toggleSidebar = () => setIsOpen((prev) => !prev);
 
-  const toggleSidebar = () => setIsOpen(!isOpen);
+  const links = [
+    { to: "/admin/dashboard", label: "ড্যাশবোর্ড", icon: <FaTachometerAlt /> },
+    { to: "/admin/donation/add", label: "অনুদান যুক্ত করুন", icon: <FaDonate /> },
+    { to: "/admin/expense/add", label: "খরচ যুক্ত করুন", icon: <FaMoneyBillWave /> },
+    { to: "/admin/all-expenses", label: "খরচ তালিকা", icon: <FaMoneyCheckAlt /> },
+    { to: "/admin/manage-committee", label: "কমিটি ম্যানেজ", icon: <FaUsersCog /> },
+    { to: "/", label: "ওয়েবসাইটে ফিরে যান", icon: <FaGlobe /> },
+  ];
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAdmin");
+    navigate("/admin/login");
+  };
 
   return (
     <>
-      {/* Mobile Toggle Button */}
+      {/* Mobile Sidebar Toggle Button */}
       <button
-        className="md:hidden fixed top-20 right-5 z-30 text-white bg-green-700 p-2 rounded shadow-md"
         onClick={toggleSidebar}
-        aria-label={isOpen ? "Close sidebar" : "Open sidebar"}
+        aria-label={isOpen ? "সাইডবার বন্ধ করুন" : "সাইডবার খুলুন"}
+        className="md:hidden fixed top-2 right-5 z-30 bg-green-700 p-2 rounded shadow-md text-white hover:bg-green-600 transition"
       >
         {isOpen ? <FiX className="text-2xl" /> : <FiMenu className="text-2xl" />}
       </button>
 
-      {/* Sidebar */}
-      <div
-        className={`fixed top-0 left-0 h-screen w-64 bg-green-800 text-white p-6 z-20 transform transition-transform duration-300 ease-in-out
+      {/* Sidebar Container */}
+      <aside
+        className={`fixed top-0 left-0 z-20 h-screen w-64 bg-green-800 p-6 text-white flex flex-col justify-between transition-transform duration-300 ease-in-out
         ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+        aria-label="Admin Sidebar Navigation"
       >
-        <h2 className="text-2xl font-bold mb-10 flex items-center gap-2">
-          🕌 <span>Admin Panel</span>
-        </h2>
+        <div>
+          <h2 className="mb-10 flex items-center gap-2 text-2xl font-bold select-none">
+            <FaMosque className="text-white" /> <span>Admin Panel</span>
+          </h2>
 
-        <nav className="space-y-4 text-lg font-medium">
-          <Link to="/admin/dashboard" className="block hover:text-yellow-300 transition">
-            🏠 ড্যাশবোর্ড
-          </Link>
-          <Link to="../../pages/admin/MosqueDonation.jsx" className="block hover:text-yellow-300 transition">
-            ➕ অনুদান যুক্ত করুন
-          </Link>
-          <Link to="/admin/add-expense" className="block hover:text-yellow-300 transition">
-            ➖ খরচ যুক্ত করুন
-          </Link>
-          <Link to="/admin/manage-committee" className="block hover:text-yellow-300 transition">
-            👥 কমিটি ম্যানেজ
-          </Link>
-          <Link to="/home" className="block hover:text-yellow-300 transition">
-            🌐 ওয়েবসাইটে ফিরে যান
-          </Link>
-        </nav>
-      </div>
+          <nav className="flex flex-col space-y-4 text-lg font-medium">
+            {links.map(({ to, label, icon }) => (
+              <Link
+                key={to}
+                to={to}
+                className="flex items-center gap-2 rounded px-2 py-1 hover:text-yellow-300 transition"
+                onClick={() => setIsOpen(false)} // Auto-close on mobile
+              >
+                {icon} {label}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
-      {/* Overlay (only for mobile when open) */}
+        {/* Logout Button */}
+        <button
+          onClick={handleLogout}
+          className="bg-red-600 hover:bg-red-700 transition px-4 py-2 rounded text-white mt-6"
+        >
+          Logout
+        </button>
+      </aside>
+
+      {/* Mobile Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-30 z-10 md:hidden"
+          className="fixed inset-0 z-10 bg-black bg-opacity-30 md:hidden"
           onClick={toggleSidebar}
-        ></div>
+          aria-hidden="true"
+        />
       )}
     </>
   );

@@ -10,7 +10,10 @@ import Contact from "./pages/Contact";
 // Admin Pages
 import AdminLogin from "./pages/admin/AdminLogin";
 import Dashboard from "./pages/admin/Dashboard";
-import MosqueDonation from "./pages/admin/MosqueDonation";
+import AddDonation from "./pages/admin/AddDonation";
+import AddExpense from "./pages/admin/AddExpense";
+import ManageCommittee from "./pages/admin/ManageCommittee";
+import AllExpenses from "./pages/admin/AllExpenses";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -56,7 +59,39 @@ function AppContent() {
             </ProtectedRoute>
           }
         />
-        <Route path="/admin/mosquedonation" element={<MosqueDonation />} />
+        <Route
+          path="/admin/donation/add"
+          element={
+            <ProtectedRoute>
+              <AddDonation />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+        path="/admin/expense/add"
+        element={
+          <ProtectedRoute>
+            <AddExpense />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+      path="/admin/manage-committee"
+      element={
+        <ProtectedRoute>
+          <ManageCommittee />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/admin/all-expenses"
+      element={
+        <ProtectedRoute>
+          <AllExpenses />
+        </ProtectedRoute>
+      }
+    />
       </Routes>
     );
   }

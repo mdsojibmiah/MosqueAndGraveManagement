@@ -1,6 +1,5 @@
 // src/pages/Home.jsx
 import { FaCheckCircle } from "react-icons/fa";
-import Contact from "./Contact";
 // import committee from "./Committee";
 
 export default function Home() {
@@ -64,7 +63,7 @@ export default function Home() {
           কমিটির সদস্য দেখুন
         </a>
       </div>
-      <Contact/>
+      
     </section>
   );
 }
