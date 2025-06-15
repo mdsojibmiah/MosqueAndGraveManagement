@@ -44,6 +44,18 @@ const committeeMembers = [
     twitter: "#",
     linkedin: "#",
   },
+    {
+    id: 4,
+    name: "সুলতান",
+    position: "অর্থ সম্পাদক",
+    phone: "01912345678",
+    photo: "https://randomuser.me/api/portraits/men/65.jpg",
+    bio: "তিনি মসজিদের আর্থিক স্বচ্ছতার জন্য কাজ করে যাচ্ছেন। খুবই বিশ্বস্ত ও অভিজ্ঞ।",
+    facebook: "#",
+    whatsapp: "01912345678",
+    twitter: "#",
+    linkedin: "#",
+  },
 ];
 
 export default function Committee() {
