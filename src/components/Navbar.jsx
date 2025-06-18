@@ -10,11 +10,7 @@ export default function Navbar() {
 
   // মোবাইল মেনু খোলা থাকলে স্ক্রল বন্ধ রাখার জন্য
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
   const navLinks = [
@@ -26,20 +22,25 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-green-700 text-white fixed top-0 left-0 w-full z-50 shadow-md">
+    <nav
+      className="fixed top-0 left-0 w-full z-50 shadow-md"
+      style={{
+        background: "linear-gradient(90deg, #0f172a, #15263b)", // subtle dark blue gradient
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* লোগো---------------- */}
+          {/* লোগো */}
           <Link
             to="/"
             className="text-2xl font-extrabold tracking-wide select-none hover:text-yellow-300 transition"
             onClick={() => setMenuOpen(false)}
           >
             <img
-            src={logo}
-            alt="মসজিদ লোগো"
-            className="h-10 w-10 sm:h-10 sm:w-10 object-contain"
-          />
+              src={logo}
+              alt="মসজিদ লোগো"
+              className="h-10 w-10 object-contain"
+            />
           </Link>
 
           {/* Desktop Menu */}
@@ -68,7 +69,7 @@ export default function Navbar() {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="md:hidden text-3xl p-1 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            className="md:hidden text-3xl p-1 rounded text-white hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
           >
             {menuOpen ? <FiX /> : <FiMenu />}
           </button>
@@ -77,8 +78,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-green-800 overflow-hidden transition-max-height duration-300 ease-in-out ${
-          menuOpen ? "max-h-screen" : "max-h-0"
+        className={`md:hidden overflow-hidden transition-max-height duration-300 ease-in-out ${
+          menuOpen ? "max-h-screen bg-gradient-to-b from-[#0b1120] to-[#0f172a]" : "max-h-0"
         }`}
       >
         <div className="flex flex-col px-4 pt-4 pb-6 space-y-3">
@@ -91,8 +92,8 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className={`block text-lg font-semibold py-2 px-3 rounded-md transition-colors duration-200 ${
                   isActive
-                    ? "text-yellow-400 bg-green-700"
-                    : "text-white hover:text-yellow-300 hover:bg-green-700"
+                    ? "text-yellow-400 bg-green-900"
+                    : "text-white hover:text-yellow-300 hover:bg-green-900"
                 }`}
                 aria-current={isActive ? "page" : undefined}
               >

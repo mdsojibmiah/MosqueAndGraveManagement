@@ -1,10 +1,10 @@
 import { useState } from "react";
 import {
-  FaPhone,
   FaFacebookF,
-  FaWhatsapp,
-  FaTwitter,
   FaLinkedinIn,
+  FaPhone,
+  FaTwitter,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 const committeeMembers = [
@@ -66,7 +66,7 @@ export default function Committee() {
   );
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-16">
+    <section className="max-w-7xl mx-auto px-4 py-16 pt-40">
       <div className="text-center mb-12">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-800 mb-2 leading-tight">
           মসজিদ কমিটির সদস্যগণ
@@ -151,6 +151,10 @@ export default function Committee() {
           </div>
         ))}
       </div>
+              {/* Footer */}
+        <footer className="mt-20 border-t border-gray-700 pt-10 text-center text-gray-400 text-sm">
+          <p>© {new Date().getFullYear()} আমাদের মসজিদ ও কবরস্থান | সর্বস্বত্ব সংরক্ষিত</p>
+        </footer>
     </section>
   );
 }

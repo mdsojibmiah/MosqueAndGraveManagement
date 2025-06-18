@@ -1,19 +1,20 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes, useLocation } from "react-router-dom";
 
 // Public Pages
-import Home from "./pages/Home";
 import Committee from "./pages/Committee";
+import Contact from "./pages/Contact";
 import Donation from "./pages/Donation";
 import Expense from "./pages/Expense";
-import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+
 
 // Admin Pages
-import AdminLogin from "./pages/admin/AdminLogin";
-import Dashboard from "./pages/admin/Dashboard";
 import AddDonation from "./pages/admin/AddDonation";
 import AddExpense from "./pages/admin/AddExpense";
-import ManageCommittee from "./pages/admin/ManageCommittee";
+import AdminLogin from "./pages/admin/AdminLogin";
 import AllExpenses from "./pages/admin/AllExpenses";
+import Dashboard from "./pages/admin/Dashboard";
+import ManageCommittee from "./pages/admin/ManageCommittee";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -26,7 +27,7 @@ function Layout() {
   return (
     <>
       <Navbar />
-      <main className="pt-20 px-4">
+      <main className="">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/committee" element={<Committee />} />

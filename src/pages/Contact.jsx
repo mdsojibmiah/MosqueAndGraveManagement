@@ -1,11 +1,11 @@
 import { useState } from "react";
 import {
-  FaUser,
   FaEnvelope,
-  FaRegCommentDots,
+  FaMapMarkerAlt,
   FaPaperPlane,
   FaPhone,
-  FaMapMarkerAlt,
+  FaRegCommentDots,
+  FaUser,
   FaWhatsapp,
 } from "react-icons/fa";
 
@@ -27,7 +27,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 px-4 py-12 flex items-center justify-center">
+    <div className="min-h-screen bg-gray-100 pt-20 px-4 py-12 flex items-center justify-center">
       <div className="w-full max-w-5xl bg-white rounded-2xl shadow-lg p-8 md:p-12 grid md:grid-cols-2 gap-10">
         {/* Left Side Info */}
         <div className="space-y-6">
@@ -133,7 +133,10 @@ export default function Contact() {
             আমরা সাধারণত ২৪ ঘণ্টার মধ্যে রিপ্লাই দিয়ে থাকি।
           </p>
         </form>
+        
       </div>
+      
     </div>
+    
   );
 }

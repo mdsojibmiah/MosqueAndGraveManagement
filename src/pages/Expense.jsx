@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import { FiDownload } from "react-icons/fi";
 import { useReactToPrint } from "react-to-print";
 
@@ -46,6 +46,7 @@ export default function ExpenseList() {
 
   // 👉 Reusable Table Component (no scroll, fully responsive)
   const ExpenseTable = ({ data, refProp }) => (
+    <section className="w-full py-16 px-4 sm:px-8 lg:px-16 bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-lg mb-20">
     <div ref={refProp} className="w-full">
       <table className="w-full table-fixed border border-gray-300 text-sm sm:text-base">
         <thead className="bg-green-100 text-gray-700">
@@ -77,10 +78,12 @@ export default function ExpenseList() {
         </tbody>
       </table>
     </div>
+    </section>
   );
 
   return (
-    <div className="max-w-7xl mx-auto p-4 mt-6 bg-white shadow-md rounded-lg">
+<div className="pt-24 sm:pt-32 md:pt-44 px-4 sm:px-8 md:px-16 min-h-screen bg-gradient-to-b from-[#ecfdf5] to-[#d1fae5]">
+
       {/* Tab Buttons */}
       <div className="flex justify-center mb-6 gap-4 flex-wrap">
         <button
@@ -164,6 +167,10 @@ export default function ExpenseList() {
           <ExpenseTable data={filteredGraveyardExpenses} refProp={graveyardRef} />
         </section>
       )}
+              {/* Footer */}
+        <footer className="mt-20 border-t border-gray-700 pt-10 text-center text-gray-400 text-sm">
+          <p>© {new Date().getFullYear()} আমাদের মসজিদ ও কবরস্থান | সর্বস্বত্ব সংরক্ষিত</p>
+        </footer>
     </div>
   );
 }
