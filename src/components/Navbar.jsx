@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Link, useLocation } from "react-router-dom";
 import logo from '../assets/images/l2.png';
 
 export default function Navbar() {
@@ -29,7 +29,7 @@ export default function Navbar() {
     <nav className="bg-green-700 text-white fixed top-0 left-0 w-full z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* লোগো */}
+          {/* লোগো---------------- */}
           <Link
             to="/"
             className="text-2xl font-extrabold tracking-wide select-none hover:text-yellow-300 transition"
