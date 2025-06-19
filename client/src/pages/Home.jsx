@@ -69,7 +69,7 @@ export default function Home() {
         {/* Header Section */}
         <section className="text-center mb-16 max-w-5xl mx-auto px-4">
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-green-400 drop-shadow mt-10 mb-6 leading-tight">
-            আমাদের মসজিদ ও কবরস্থান ব্যবস্থাপনা সেবা প্রদান করছি
+            আমাদের মসজিদ ও কবরস্থান
           </h1>
           <p className="text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed">
             আমাদের এলাকার মসজিদ ও কবরস্থান ব্যবস্থাপনায় এনেছি আধুনিকতার ছোঁয়া। কমিটি সদস্যদের তথ্য, দানের হিসাব, এবং অন্যান্য গুরুত্বপূর্ণ তথ্য এখন সহজেই পাওয়া যাবে ডিজিটাল মাধ্যমেই — স্বচ্ছতা ও নিরাপত্তা নিশ্চিত করে।
