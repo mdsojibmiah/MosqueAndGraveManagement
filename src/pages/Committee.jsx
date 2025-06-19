@@ -33,7 +33,7 @@ export default function Committee() {
           placeholder="সদস্যের নাম দিয়ে খুঁজুন..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="px-4 py-2 rounded-md bg-[#1e293b] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 w-full max-w-md mx-auto text-white placeholder:text-gray-300"
+          className="px-4 py-2 rounded-md bg-[#1e293b] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 w-full max-w-md mx-auto text-white placeholder:text-orange-100 "
         />
       </div>
 

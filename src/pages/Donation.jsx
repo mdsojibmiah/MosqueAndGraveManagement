@@ -37,7 +37,9 @@ export default function DonationList() {
 
   const totalAmount = (donations) => donations.reduce((sum, { amount }) => sum + amount, 0);
 
-  // ExpenseList এর মতো Table component refactor করা হলো
+  const inputStyle =
+    "bg-[#1e293b] border border-gray-600 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-none rounded px-3 py-2 w-full";
+
   const DonationTable = ({ data, refProp }) => (
     <section className="w-full py-16 px-4 sm:px-8 lg:px-16 bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-lg mb-20">
       <div ref={refProp} className="w-full overflow-x-auto">
@@ -54,7 +56,7 @@ export default function DonationList() {
           <tbody>
             {data.length > 0 ? (
               data.map(({ id, name, amount, date, purpose }, index) => (
-                <tr key={id} className="hover:bg-green-50">
+                <tr key={id} className="hover:bg-green-50 text-black">
                   <td className="border p-2 text-center">{index + 1}</td>
                   <td className="border p-2 break-words">{name}</td>
                   <td className="border p-2">৳ {amount}</td>
@@ -76,79 +78,56 @@ export default function DonationList() {
   );
 
   return (
-    <div className="pt-24 sm:pt-32 md:pt-44 px-4 sm:px-8 md:px-16 min-h-screen bg-gradient-to-b from-[#ecfdf5] to-[#d1fae5]">
-      
-      {/* Tab Buttons */}
+    <div className="pt-24 sm:pt-32 md:pt-44 px-4 sm:px-8 md:px-16 min-h-screen bg-gradient-to-b from-[#0b1120] via-[#0f172a] to-[#0f172a] text-white">
       <div className="flex justify-center mb-6 gap-4 flex-wrap">
         <button
           onClick={() => setActiveTab("mosque")}
-          className={`px-6 py-2 rounded font-semibold ${
+          className={`px-6 py-2 rounded font-semibold transition-all duration-200 ${
             activeTab === "mosque"
-              ? "bg-green-700 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-green-100"
+              ? "bg-green-600 text-white shadow"
+              : "bg-white text-gray-800 hover:bg-green-100"
           }`}
         >
-          মসজিদের অনুদান
+          🕌 মসজিদের অনুদান
         </button>
         <button
           onClick={() => setActiveTab("graveyard")}
-          className={`px-6 py-2 rounded font-semibold ${
+          className={`px-6 py-2 rounded font-semibold transition-all duration-200 ${
             activeTab === "graveyard"
-              ? "bg-green-700 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-green-100"
+              ? "bg-green-600 text-white shadow"
+              : "bg-white text-gray-800 hover:bg-green-100"
           }`}
         >
-          কবরস্থানের অনুদান
+          ⚰️ কবরস্থানের অনুদান
         </button>
       </div>
 
-      {/* Content Section */}
       {activeTab === "mosque" && (
         <section>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-            <h2 className="text-2xl font-bold text-green-700 text-center sm:text-left">📋 মসজিদের অনুদানের তালিকা</h2>
+            <h2 className="text-2xl font-bold text-green-400 text-center sm:text-left">
+              📋 মসজিদের অনুদানের তালিকা
+            </h2>
             <button
               onClick={handlePrintMosque}
-              className="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded"
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
             >
-              <FiDownload />
-              PDF ডাউনলোড
+              <FiDownload /> PDF ডাউনলোড
             </button>
           </div>
 
-          <div className="text-right font-semibold text-gray-700 mb-4">
-            মোট অনুদান: <span className="text-green-800">৳ {totalAmount(filteredMosqueDonations)}</span>
+          <div className="text-right font-semibold text-green-300 mb-4">
+            মোট অনুদান: <span className="text-green-500">৳ {totalAmount(filteredMosqueDonations)}</span>
           </div>
 
-          {/* Filters */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <input
-              type="date"
-              value={mosqueFilters.date}
-              onChange={(e) => setMosqueFilters({ ...mosqueFilters, date: e.target.value })}
-              className="border p-2 rounded text-sm"
-            />
-            <input
-              type="text"
-              placeholder="দাতার নাম"
-              value={mosqueFilters.name}
-              onChange={(e) => setMosqueFilters({ ...mosqueFilters, name: e.target.value })}
-              className="border p-2 rounded text-sm"
-            />
-            <input
-              type="number"
-              placeholder="সর্বনিম্ন পরিমাণ"
-              value={mosqueFilters.minAmount}
-              onChange={(e) => setMosqueFilters({ ...mosqueFilters, minAmount: e.target.value })}
-              className="border p-2 rounded text-sm"
-            />
-            <input
-              type="number"
-              placeholder="সর্বোচ্চ পরিমাণ"
-              value={mosqueFilters.maxAmount}
-              onChange={(e) => setMosqueFilters({ ...mosqueFilters, maxAmount: e.target.value })}
-              className="border p-2 rounded text-sm"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6 ">
+            <input type="date" value={mosqueFilters.date} onChange={(e) => setMosqueFilters({ ...mosqueFilters, date: e.target.value })} className={inputStyle} />
+
+            <input type="text" placeholder="দাতার নাম" value={mosqueFilters.name} onChange={(e) => setMosqueFilters({ ...mosqueFilters, name: e.target.value })} className={inputStyle} />
+
+            <input type="number" placeholder="সর্বনিম্ন পরিমাণ" value={mosqueFilters.minAmount} onChange={(e) => setMosqueFilters({ ...mosqueFilters, minAmount: e.target.value })} className={inputStyle} />
+            
+            <input type="number" placeholder="সর্বোচ্চ পরিমাণ" value={mosqueFilters.maxAmount} onChange={(e) => setMosqueFilters({ ...mosqueFilters, maxAmount: e.target.value })} className={inputStyle} />
           </div>
 
           <DonationTable data={filteredMosqueDonations} refProp={mosqueRef} />
@@ -158,58 +137,35 @@ export default function DonationList() {
       {activeTab === "graveyard" && (
         <section>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-            <h2 className="text-2xl font-bold text-green-700 text-center sm:text-left">📋 কবরস্থানের অনুদানের তালিকা</h2>
+            <h2 className="text-2xl font-bold text-green-400 text-center sm:text-left">
+              📋 কবরস্থানের অনুদানের তালিকা
+            </h2>
             <button
               onClick={handlePrintGraveyard}
-              className="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded"
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
             >
-              <FiDownload />
-              PDF ডাউনলোড
+              <FiDownload /> PDF ডাউনলোড
             </button>
           </div>
 
-          <div className="text-right font-semibold text-gray-700 mb-4">
-            মোট অনুদান: <span className="text-green-800">৳ {totalAmount(filteredGraveyardDonations)}</span>
+          <div className="text-right font-semibold text-white mb-4">
+            মোট অনুদান: <span className="text-green-500">৳ {totalAmount(filteredGraveyardDonations)}</span>
           </div>
 
-          {/* Filters */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <input
-              type="date"
-              value={graveyardFilters.date}
-              onChange={(e) => setGraveyardFilters({ ...graveyardFilters, date: e.target.value })}
-              className="border p-2 rounded text-sm"
-            />
-            <input
-              type="text"
-              placeholder="দাতার নাম"
-              value={graveyardFilters.name}
-              onChange={(e) => setGraveyardFilters({ ...graveyardFilters, name: e.target.value })}
-              className="border p-2 rounded text-sm"
-            />
-            <input
-              type="number"
-              placeholder="সর্বনিম্ন পরিমাণ"
-              value={graveyardFilters.minAmount}
-              onChange={(e) => setGraveyardFilters({ ...graveyardFilters, minAmount: e.target.value })}
-              className="border p-2 rounded text-sm"
-            />
-            <input
-              type="number"
-              placeholder="সর্বোচ্চ পরিমাণ"
-              value={graveyardFilters.maxAmount}
-              onChange={(e) => setGraveyardFilters({ ...graveyardFilters, maxAmount: e.target.value })}
-              className="border p-2 rounded text-sm"
-            />
+            <input type="date" value={graveyardFilters.date} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, date: e.target.value })} className={inputStyle} />
+            <input type="text" placeholder="দাতার নাম" value={graveyardFilters.name} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, name: e.target.value })} className={inputStyle} />
+            <input type="number" placeholder="সর্বনিম্ন পরিমাণ" value={graveyardFilters.minAmount} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, minAmount: e.target.value })} className={inputStyle} />
+            <input type="number" placeholder="সর্বোচ্চ পরিমাণ" value={graveyardFilters.maxAmount} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, maxAmount: e.target.value })} className={inputStyle} />
           </div>
 
           <DonationTable data={filteredGraveyardDonations} refProp={graveyardRef} />
         </section>
       )}
-              {/* Footer */}
-        <footer className="mt-20 border-t border-gray-700 pt-10 text-center text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} আমাদের মসজিদ ও কবরস্থান | সর্বস্বত্ব সংরক্ষিত</p>
-        </footer>
+
+      <footer className="mt-20 border-t border-gray-700 pt-10 text-center text-gray-400 text-sm">
+        <p>© {new Date().getFullYear()} আমাদের মসজিদ ও কবরস্থান | সর্বস্বত্ব সংরক্ষিত</p>
+      </footer>
     </div>
   );
 }
