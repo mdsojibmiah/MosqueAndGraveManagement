@@ -44,52 +44,49 @@ export default function ExpenseList() {
   const totalMosqueExpense = filteredMosqueExpenses.reduce((sum, expense) => sum + expense.amount, 0);
   const totalGraveyardExpense = filteredGraveyardExpenses.reduce((sum, expense) => sum + expense.amount, 0);
 
-  // 👉 Reusable Table Component (no scroll, fully responsive)
   const ExpenseTable = ({ data, refProp }) => (
     <section className="w-full py-16 px-4 sm:px-8 lg:px-16 bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-lg mb-20">
-    <div ref={refProp} className="w-full">
-      <table className="w-full table-fixed border border-gray-300 text-sm sm:text-base">
-        <thead className="bg-green-100 text-gray-700">
-          <tr>
-            <th className="border p-2 w-6 sm:w-12">#</th>
-            <th className="border p-2">বিভাগ</th>
-            <th className="border p-2">পরিমাণ (৳)</th>
-            <th className="border p-2">তারিখ</th>
-            <th className="border p-2">নোট</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((expense, index) => (
-            <tr key={expense.id} className="hover:bg-green-50">
-              <td className="border p-2 text-center">{index + 1}</td>
-              <td className="border p-2">{expense.category}</td>
-              <td className="border p-2">৳ {expense.amount}</td>
-              <td className="border p-2">{expense.date}</td>
-              <td className="border p-2">{expense.note}</td>
-            </tr>
-          ))}
-          {data.length === 0 && (
+      <div ref={refProp} className="w-full overflow-x-auto">
+        <table className="w-full table-fixed border border-gray-300 text-sm sm:text-base">
+          <thead className="bg-green-100 text-gray-700">
             <tr>
-              <td colSpan="5" className="text-center py-4 text-gray-500">
-                কোনও খরচ পাওয়া যায়নি।
-              </td>
+              <th className="border p-2 w-6 sm:w-12">#</th>
+              <th className="border p-2">বিভাগ</th>
+              <th className="border p-2">পরিমাণ (৳)</th>
+              <th className="border p-2">তারিখ</th>
+              <th className="border p-2">নোট</th>
             </tr>
-          )}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {data.map((expense, index) => (
+              <tr key={expense.id} className="hover:bg-green-50 text-black">
+                <td className="border p-2 text-center">{index + 1}</td>
+                <td className="border p-2">{expense.category}</td>
+                <td className="border p-2">৳ {expense.amount}</td>
+                <td className="border p-2">{expense.date}</td>
+                <td className="border p-2">{expense.note}</td>
+              </tr>
+            ))}
+            {data.length === 0 && (
+              <tr>
+                <td colSpan="5" className="text-center py-4 text-gray-500">
+                  কোনও খরচ পাওয়া যায়নি।
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 
   return (
-<div className="pt-24 sm:pt-32 md:pt-44 px-4 sm:px-8 md:px-16 min-h-screen bg-gradient-to-b from-[#ecfdf5] to-[#d1fae5]">
-
-      {/* Tab Buttons */}
+    <div className="pt-24 sm:pt-32 md:pt-44 px-4 sm:px-8 md:px-16 min-h-screen bg-gradient-to-b from-[#0b1120] via-[#0f172a] to-[#0f172a] text-white">
       <div className="flex justify-center mb-6 gap-4 flex-wrap">
         <button
           onClick={() => setActiveTab("mosque")}
           className={`px-6 py-2 rounded font-semibold ${
-            activeTab === "mosque" ? "bg-green-700 text-white" : "bg-gray-200 text-gray-700 hover:bg-green-100"
+            activeTab === "mosque" ? "bg-green-700 text-white" : "bg-gray-200 text-gray-800 hover:bg-green-100"
           }`}
         >
           মসজিদের খরচ
@@ -97,80 +94,76 @@ export default function ExpenseList() {
         <button
           onClick={() => setActiveTab("graveyard")}
           className={`px-6 py-2 rounded font-semibold ${
-            activeTab === "graveyard" ? "bg-green-700 text-white" : "bg-gray-200 text-gray-700 hover:bg-green-100"
+            activeTab === "graveyard" ? "bg-green-700 text-white" : "bg-gray-200 text-gray-800 hover:bg-green-100"
           }`}
         >
           কবরস্থানের খরচ
         </button>
       </div>
 
-      {/* Mosque Expense */}
       {activeTab === "mosque" && (
         <section>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-            <h2 className="text-2xl font-bold text-green-700 text-center sm:text-left">
+            <h2 className="text-2xl font-bold text-green-400 text-center sm:text-left">
               📋 মসজিদের খরচের তালিকা
             </h2>
             <button
               onClick={handlePrintMosque}
-              className="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded"
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
             >
               <FiDownload />
               PDF ডাউনলোড
             </button>
           </div>
 
-          <div className="text-right font-semibold text-gray-700 mb-4">
-            মোট খরচ: <span className="text-green-800">৳ {totalMosqueExpense}</span>
+          <div className="text-right font-semibold text-green-200 mb-4">
+            মোট খরচ: <span className="text-green-400">৳ {totalMosqueExpense}</span>
           </div>
 
-          {/* Filters */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <input type="date" value={mosqueFilters.date} onChange={(e) => setMosqueFilters({ ...mosqueFilters, date: e.target.value })} className="border p-2 rounded text-sm" />
-            <input type="text" placeholder="ক্যাটাগরি লিখুন" value={mosqueFilters.category} onChange={(e) => setMosqueFilters({ ...mosqueFilters, category: e.target.value })} className="border p-2 rounded text-sm" />
-            <input type="number" placeholder="সর্বনিম্ন পরিমাণ" value={mosqueFilters.minAmount} onChange={(e) => setMosqueFilters({ ...mosqueFilters, minAmount: e.target.value })} className="border p-2 rounded text-sm" />
-            <input type="number" placeholder="সর্বোচ্চ পরিমাণ" value={mosqueFilters.maxAmount} onChange={(e) => setMosqueFilters({ ...mosqueFilters, maxAmount: e.target.value })} className="border p-2 rounded text-sm" />
+            <input type="date" value={mosqueFilters.date} onChange={(e) => setMosqueFilters({ ...mosqueFilters, date: e.target.value })} className="p-2 rounded text-sm bg-transparent border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder:text-gray-400 text-white" />
+            <input type="text" placeholder="ক্যাটাগরি লিখুন" value={mosqueFilters.category} onChange={(e) => setMosqueFilters({ ...mosqueFilters, category: e.target.value })} className="p-2 rounded text-sm bg-transparent border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder:text-gray-400 text-white" />
+            <input type="number" placeholder="সর্বনিম্ন পরিমাণ" value={mosqueFilters.minAmount} onChange={(e) => setMosqueFilters({ ...mosqueFilters, minAmount: e.target.value })} className="p-2 rounded text-sm bg-transparent border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder:text-gray-400 text-white" />
+            <input type="number" placeholder="সর্বোচ্চ পরিমাণ" value={mosqueFilters.maxAmount} onChange={(e) => setMosqueFilters({ ...mosqueFilters, maxAmount: e.target.value })} className="p-2 rounded text-sm bg-transparent border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder:text-gray-400 text-white" />
           </div>
 
           <ExpenseTable data={filteredMosqueExpenses} refProp={mosqueRef} />
         </section>
       )}
 
-      {/* Graveyard Expense */}
       {activeTab === "graveyard" && (
         <section>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-            <h2 className="text-2xl font-bold text-green-700 text-center sm:text-left">
+            <h2 className="text-2xl font-bold text-green-400 text-center sm:text-left">
               📋 কবরস্থানের খরচের তালিকা
             </h2>
             <button
               onClick={handlePrintGraveyard}
-              className="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded"
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
             >
               <FiDownload />
               PDF ডাউনলোড
             </button>
           </div>
 
-          <div className="text-right font-semibold text-gray-700 mb-4">
-            মোট খরচ: <span className="text-green-800">৳ {totalGraveyardExpense}</span>
+          <div className="text-right font-semibold text-green-200 mb-4">
+            মোট খরচ: <span className="text-green-400">৳ {totalGraveyardExpense}</span>
           </div>
 
-          {/* Filters */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <input type="date" value={graveyardFilters.date} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, date: e.target.value })} className="border p-2 rounded text-sm" />
-            <input type="text" placeholder="ক্যাটাগরি লিখুন" value={graveyardFilters.category} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, category: e.target.value })} className="border p-2 rounded text-sm" />
-            <input type="number" placeholder="সর্বনিম্ন পরিমাণ" value={graveyardFilters.minAmount} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, minAmount: e.target.value })} className="border p-2 rounded text-sm" />
-            <input type="number" placeholder="সর্বোচ্চ পরিমাণ" value={graveyardFilters.maxAmount} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, maxAmount: e.target.value })} className="border p-2 rounded text-sm" />
+            <input type="date" value={graveyardFilters.date} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, date: e.target.value })} className="p-2 rounded text-sm bg-transparent border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder:text-gray-400 text-white" />
+            <input type="text" placeholder="ক্যাটাগরি লিখুন" value={graveyardFilters.category} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, category: e.target.value })} className="p-2 rounded text-sm bg-transparent border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder:text-gray-400 text-white" />
+            <input type="number" placeholder="সর্বনিম্ন পরিমাণ" value={graveyardFilters.minAmount} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, minAmount: e.target.value })} className="p-2 rounded text-sm bg-transparent border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder:text-gray-400 text-white" />
+            <input type="number" placeholder="সর্বোচ্চ পরিমাণ" value={graveyardFilters.maxAmount} onChange={(e) => setGraveyardFilters({ ...graveyardFilters, maxAmount: e.target.value })} className="p-2 rounded text-sm bg-transparent border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder:text-gray-400 text-white" />
           </div>
 
           <ExpenseTable data={filteredGraveyardExpenses} refProp={graveyardRef} />
         </section>
       )}
-              {/* Footer */}
-        <footer className="mt-20 border-t border-gray-700 pt-10 text-center text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} আমাদের মসজিদ ও কবরস্থান | সর্বস্বত্ব সংরক্ষিত</p>
-        </footer>
+
+      <footer className="mt-20 border-t border-gray-700 pt-10 text-center text-gray-400 text-sm">
+        <p>© {new Date().getFullYear()} আমাদের মসজিদ ও কবরস্থান | সর্বস্বত্ব সংরক্ষিত</p>
+      </footer>
     </div>
   );
 }

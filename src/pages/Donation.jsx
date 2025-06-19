@@ -88,7 +88,7 @@ export default function DonationList() {
               : "bg-white text-gray-800 hover:bg-green-100"
           }`}
         >
-          🕌 মসজিদের অনুদান
+          মসজিদের অনুদান
         </button>
         <button
           onClick={() => setActiveTab("graveyard")}
@@ -98,7 +98,7 @@ export default function DonationList() {
               : "bg-white text-gray-800 hover:bg-green-100"
           }`}
         >
-          ⚰️ কবরস্থানের অনুদান
+          কবরস্থানের অনুদান
         </button>
       </div>
 
