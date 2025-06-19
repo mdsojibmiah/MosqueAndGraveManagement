@@ -163,7 +163,7 @@ export default function DonationList() {
         </section>
       )}
 
-      <footer className="mt-20 border-t border-gray-700 pt-10 text-center text-gray-400 text-sm">
+      <footer className="mt-20 border-t border-gray-700 pt-10 pb-4 text-center text-gray-400 text-sm">
         <p>© {new Date().getFullYear()} আমাদের মসজিদ ও কবরস্থান | সর্বস্বত্ব সংরক্ষিত</p>
       </footer>
     </div>

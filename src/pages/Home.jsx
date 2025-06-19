@@ -142,16 +142,6 @@ export default function Home() {
         <FaqSection />
         <NoticeSection />
 
-        {/* Button Section */}
-        {/* <section className="text-center mt-20">
-          <a
-            href="/committee"
-            className="inline-block bg-gradient-to-r from-green-600 to-green-800 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-lg text-lg sm:text-xl font-semibold shadow-lg hover:scale-105 transform transition duration-300"
-          >
-            কমিটির সদস্য দেখুন
-          </a>
-        </section> */}
-
         {/* Footer */}
         <footer className="mt-20 border-t border-gray-700 pt-10 text-center text-gray-400 text-sm">
           <p>© {new Date().getFullYear()} আমাদের মসজিদ ও কবরস্থান | সর্বস্বত্ব সংরক্ষিত</p>
