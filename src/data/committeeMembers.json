@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "মোঃ আনোয়ার হোসেন",
+    "position": "সভাপতি",
+    "phone": "01712345678",
+    "photo": "https://randomuser.me/api/portraits/men/32.jpg",
+    "bio": "তিনি মসজিদের জন্য ১০ বছরের বেশি সময় ধরে অবদান রাখছেন। তার নেতৃত্বে বহু উন্নয়নমূলক কাজ হয়েছে।",
+    "facebook": "#",
+    "whatsapp": "01712345678",
+    "twitter": "#",
+    "linkedin": "#"
+  },
+  {
+    "id": 2,
+    "name": "মোঃ কামরুল হাসান",
+    "position": "সাধারণ সম্পাদক",
+    "phone": "01812345678",
+    "photo": "https://randomuser.me/api/portraits/men/44.jpg",
+    "bio": "তিনি দায়িত্ববান ও সংগঠক হিসেবে পরিচিত। সমাজসেবায় তার অনেক উদ্যোগ আছে।",
+    "facebook": "#",
+    "whatsapp": "01812345678",
+    "twitter": "#",
+    "linkedin": "#"
+  },
+  {
+    "id": 3,
+    "name": "সুলতান",
+    "position": "অর্থ সম্পাদক",
+    "phone": "01912345678",
+    "photo": "https://randomuser.me/api/portraits/men/65.jpg",
+    "bio": "তিনি মসজিদের আর্থিক স্বচ্ছতার জন্য কাজ করে যাচ্ছেন। খুবই বিশ্বস্ত ও অভিজ্ঞ।",
+    "facebook": "#",
+    "whatsapp": "01912345678",
+    "twitter": "#",
+    "linkedin": "#"
+  }
+]
