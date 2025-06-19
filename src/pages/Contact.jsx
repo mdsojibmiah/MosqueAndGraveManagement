@@ -27,7 +27,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 pt-20 px-4 py-12 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-b from-[#0b1120] via-[#0f172a] to-[#0f172a] pt-20 px-4 py-12 flex items-center justify-center">
       <div className="w-full max-w-5xl bg-white rounded-2xl shadow-lg p-8 md:p-12 grid md:grid-cols-2 gap-10">
         {/* Left Side Info */}
         <div className="space-y-6">

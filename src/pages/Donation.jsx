@@ -127,7 +127,7 @@ export default function DonationList() {
 
             <input type="number" placeholder="সর্বনিম্ন পরিমাণ" value={mosqueFilters.minAmount} onChange={(e) => setMosqueFilters({ ...mosqueFilters, minAmount: e.target.value })} className={inputStyle} />
             
-            <input type="number" placeholder="সর্বোচ্চ পরিমাণ" value={mosqueFilters.maxAmount} onChange={(e) => setMosqueFilters({ ...mosqueFilters, maxAmount: e.target.value })} className={inputStyle} />
+            <input  type="number" placeholder="সর্বোচ্চ পরিমাণ" value={mosqueFilters.maxAmount} onChange={(e) => setMosqueFilters({ ...mosqueFilters, maxAmount: e.target.value })} className={inputStyle} />
           </div>
 
           <DonationTable data={filteredMosqueDonations} refProp={mosqueRef} />
