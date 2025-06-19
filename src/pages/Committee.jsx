@@ -37,7 +37,7 @@ export default function Committee() {
         {filteredMembers.map((member) => (
           <div
             key={member.id}
-            className="bg-[#f9f9f9] text-gray-800 rounded-xl shadow-md p-6 flex flex-col items-center text-center hover:shadow-2xl hover:scale-[1.02] transition duration-300 border-t-4 border-green-600"
+            className="bg-gradient-to-b from-yellow-50 via-orange-100 to-white rounded-xl shadow-md p-6 flex flex-col items-center text-center hover:shadow-2xl hover:scale-[1.02] transition duration-300 border-t-4 border-green-600"
           >
             <img
               src={member.photo}
