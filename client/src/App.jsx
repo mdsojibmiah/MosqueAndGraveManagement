@@ -1,6 +1,7 @@
 import { Route, BrowserRouter as Router, Routes, useLocation } from "react-router-dom";
 
 // Public Pages
+import './index.css';
 import Committee from "./pages/Committee";
 import Contact from "./pages/Contact";
 import Donation from "./pages/Donation";
