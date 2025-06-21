@@ -16,7 +16,7 @@ const Mosque = () => {
             <FaMosque className="text-white text-5xl" />
             বারাপুষা উত্তরপাড়া জামে মসজিদ
           </h1>
-          <p className="text-gray-100 mt-2">১২৩ মসজিদ রোড, ঢাকা, বাংলাদেশ</p>
+          <p className="text-gray-100 mt-2">মসজিদ সড়ক, বারাপুষা, নাগরপুর, টাঙ্গাইল ১৯৩৬</p>
         </div>
 
         {/* About Mosque */}
