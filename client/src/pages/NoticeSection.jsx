@@ -30,10 +30,15 @@ const NoticeSection = () => {
         </p>
       </div>
 
+      {/* Right side notice section */}
+      <div>
+        {/* Notice header*/}
+        <h2 className="text-3xl font-bold text-white text-center mb-4">
+          নোটিশ দেখুন
+        </h2>
 
-        {/* 🔵 Right Side - Dynamic Notice Cards */}
-        <div className="h-[400px] overflow-y-auto pr-2 space-y-4">
-          <h2 className="text-3xl font-bold text-white text-center mb-4">নোটিশ দেখুন</h2>
+        {/*Notice Content*/}
+        <div className="h-[400px] overflow-y-auto pr-2 space-y-4 border-t border-gray-600 pt-4">
           {notices.map((notice, index) => (
             <div
               key={index}
@@ -47,6 +52,9 @@ const NoticeSection = () => {
             </div>
           ))}
         </div>
+      </div>
+
+
 
       </div>
     </section>
