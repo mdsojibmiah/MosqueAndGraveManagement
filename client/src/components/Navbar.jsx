@@ -15,6 +15,8 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "হোম", path: "/" },
+    { name: "মসজিদ", path: "/mosque" },
+    // { name: "হোম", path: "" },
     { name: "কমিটি", path: "/committee" },
     { name: "অনুদান", path: "/donation" },
     { name: "খরচ", path: "/expense" },

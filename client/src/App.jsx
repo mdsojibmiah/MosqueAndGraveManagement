@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import Donation from "./pages/Donation";
 import Expense from "./pages/Expense";
 import Home from "./pages/Home";
+import Mosque from "./pages/Mosque";
 
 
 // Admin Pages
@@ -20,6 +21,7 @@ import ManageCommittee from "./pages/admin/ManageCommittee";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 
+
 /**
  * Layout for public pages – includes Navbar and padding.
  */
@@ -30,6 +32,7 @@ function Layout() {
       <main className="">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/mosque" element={<Mosque />} />
           <Route path="/committee" element={<Committee />} />
           <Route path="/donation" element={<Donation />} />
           <Route path="/expense" element={<Expense />} />
