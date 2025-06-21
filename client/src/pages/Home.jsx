@@ -1,33 +1,14 @@
 // src/pages/Home.jsx
-import { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import homeimage from '../assets/images/homeimg.jpg';
 import images from "../data/galleryImages.json";
 import FaqSection from "./FaqSection";
 import NoticeSection from "./NoticeSection";
-
-// Function to convert 24-hour time to 12-hour AM/PM format
-function convertTo12Hour(time24) {
-  let [hour, minute] = time24.split(":").map(Number);
-  const ampm = hour >= 12 ? "PM" : "AM";
-  hour = hour % 12 || 12;
-  return `${hour}:${minute.toString().padStart(2, "0")} ${ampm}`;
-}
-// map of English to Bangla names
-const banglaNames = {
-  Fajr: "ফজর",
-  Dhuhr: "যোহর",
-  Asr: "আসর",
-  Maghrib: "মাগরিব",
-  Isha: "ইশা"
-};
+import PrayerTimeSection from "./PrayerTimeSection";
 
 
 export default function Home() {
   // State for prayer times, loading status, and error message
-  const [prayerTimes, setPrayerTimes] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   // List of website feature points
   const points = [
@@ -37,31 +18,6 @@ export default function Home() {
     "সবার জন্য সহজবোধ্য ও নিরাপদ ওয়েবসাইট।",
     "মোবাইল ও ডেস্কটপ — উভয় ডিভাইসেই ব্যবহারযোগ্য।",
   ];
-
-  // Fetch prayer times from AlAdhan API
-  useEffect(() => {
-    async function fetchPrayerTimes() {
-      setLoading(true);
-      try {
-        const response = await fetch(
-          "https://api.aladhan.com/v1/timingsByCity?city=Dhaka&country=Bangladesh&method=2"
-        );
-        const data = await response.json();
-        if (data.code === 200 && data.data?.timings) {
-          const { Fajr, Dhuhr, Asr, Maghrib, Isha } = data.data.timings;
-          setPrayerTimes({ Fajr, Dhuhr, Asr, Maghrib, Isha });
-          setError(null);
-        } else {
-          setError("নামাজের সময় পাওয়া যাচ্ছে না। অনুগ্রহ করে পরে চেষ্টা করুন।");
-        }
-      } catch {
-        setError("API থেকে নামাজের সময় আনতে সমস্যা হয়েছে।");
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchPrayerTimes();
-  }, []);
 
   return (
       <main className="w-full min-h-screen px-4 sm:px-6 py-16 space-y-24 bg-gradient-to-b from-[#0b1120] via-[#0f172a] to-[#0f172a] text-white">
@@ -100,7 +56,8 @@ export default function Home() {
         </section>
 
         {/* Prayer Time Section */}
-        <section className=" backdrop-blur-md p-6 rounded-lg shadow-xl text-center max-w-4xl mx-auto">
+        <PrayerTimeSection/>
+        {/* <section className=" backdrop-blur-md p-6 rounded-lg shadow-xl text-center max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-green-300 mb-6">আজকের নামাজের সময়</h2>
           {loading ? (
             <p className="text-gray-200 text-lg">নামাজের সময় লোড হচ্ছে...</p>
@@ -120,7 +77,7 @@ export default function Home() {
                 ))}
             </div>
           )}
-        </section>
+        </section> */}
 
         {/* Gallery Section */}
         <section className="max-w-7xl mx-auto px-4 py-16">

@@ -8,7 +8,6 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  // মোবাইল মেনু খোলা থাকলে স্ক্রল বন্ধ রাখার জন্য
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
@@ -32,17 +31,17 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* লোগো */}
+          {/* Logo*/}
           <Link
             to="/"
             className="text-2xl font-extrabold tracking-wide select-none hover:text-yellow-300 transition"
             onClick={() => setMenuOpen(false)}
           >
-            <img
-              src={logo}
-              alt="মসজিদ লোগো"
-              className="h-10 w-10 object-contain"
-            />
+          <img
+            src={logo}
+            alt="মসজিদ লোগো"
+            className="h-14 w-auto sm:h-16 object-contain transition-all duration-300"
+          />
           </Link>
 
           {/* Desktop Menu */}

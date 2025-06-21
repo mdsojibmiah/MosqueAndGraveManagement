@@ -15,7 +15,7 @@ export default function AdminLogin() {
       localStorage.setItem("isAdmin", "true");
       navigate("/admin/dashboard");
     } else {
-      setError("❌ ভুল ইমেইল অথবা পাসওয়ার্ড!");
+      setError("ভুল ইমেইল অথবা পাসওয়ার্ড!");
     }
   };
 
